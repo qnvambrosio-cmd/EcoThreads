@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | EcoThreads</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="product.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <div class="logo-box">
+          <img src="images/EcoThreads_Logo.png" alt="EcoThreads Logo" />
+        </div>
+        <div class="logo-text-wrapper">
+          <span class="logo-text">EcoThreads</span>
+          <small class="logo-subtext">To Second Chances</small>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav desktop-nav">
+        <a href="EcoHomePage.html#home">Home</a>
+        <a href="EcoHomePage.html#about">About</a>
+        <a href="EcoHomePage.html#offers">Offers</a>
+        <a href="EcoHomePage.html#team">Team</a>
+        <a href="EcoHomePage.html#contact">Contact</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+
+      <a href="login.html" class="profile-circle" aria-label="Login">
+        <i class="fas fa-user"></i>
+      </a>
+    </div>
+  </header>
+
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h1>Login</h1>
+        <p>Access your EcoThreads account</p>
+      </div>
+      <form id="loginForm" class="filter-section">
+        <div class="filter-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required />
+        </div>
+        <div class="filter-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Simple check (can be replaced with real backend later)
+      if(user === "admin" && pass === "1234"){
+        alert("Login successful! Redirecting...");
+        window.location.href = "product.html";
+      } else {
+        alert("Invalid credentials, please try again.");
+      }
+    });
+  </script>
+</body>
+</html>

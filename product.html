@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop Products | EcoThreads</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="product.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <div class="logo-box">
+          <img src="images/EcoThreads_Logo.png" alt="EcoThreads Logo" />
+        </div>
+        <div class="logo-text-wrapper">
+          <span class="logo-text">EcoThreads</span>
+          <small class="logo-subtext">To Second Chances</small>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav desktop-nav">
+        <a href="EcoHomePage.html#home">Home</a>
+        <a href="EcoHomePage.html#about">About</a>
+        <a href="#products">Offers</a>
+        <a href="EcoHomePage.html#team">Team</a>
+        <a href="EcoHomePage.html#contact">Contact</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+
+      <button class="btn apply-btn desktop-apply-btn" onclick="location.href='Reservation.html'">
+        Reserve Now
+      </button>
+
+      <a href="login.html" class="profile-circle" aria-label="Login">
+        <i class="fas fa-user"></i>
+      </a>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="mobile-menu">
+      <div class="mobile-logo">
+        <span class="logo-text">EcoThreads</span>
+        <small class="logo-subtext">To Second Chances</small>
+      </div>
+
+      <a href="EcoHomePage.html#home">Home</a>
+      <a href="EcoHomePage.html#about">About</a>
+      <a href="#products">Offers</a>
+      <a href="EcoHomePage.html#team">Team</a>
+      <a href="EcoHomePage.html#contact">Contact</a>
+
+      <button class="btn apply-btn mobile-apply-btn" onclick="location.href='Reservation.html'">
+        Reserve Now
+      </button>
+    </nav>
+  </header>
+
+  <!-- Products Section -->
+  <section id= products class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h1>Browse Our Collection</h1>
+        <p>Discover unique second-hand treasures for your wardrobe</p>
+      </div>
+
+<!-- Hero Banner2 -->
+  <section class="hero2">
+    <h1>Find the one you're looking for!</h1>
+    <p>Discover our vintage products at low prices!</p>
+  </section>
+   
+
+<section aria-labelledby="thrift-categories">
+  <h2 id="thrift-categories">Categories of Clothing</h2>
+  <ul>
+    <li><strong>Tops</strong> — Includes shirts, blouses, polos, t-shirts, tank tops, flannels, sweaters, and hoodies.</li>
+    <li><strong>Bottoms</strong> — Pants, jeans, skirts, shorts, joggers, and leggings.</li>
+    <li><strong>Dresses</strong> — Casual day dresses, formal wear, gowns, sundresses, and vintage statement pieces.</li>
+    <li><strong>Outerwear</strong> — Jackets, coats, blazers, trench coats, windbreakers, and cardigans.</li>
+    <li><strong>Clothing Accessories</strong> — Scarves, hats, belts, gloves, ties, bags, wallets, and sometimes shoes.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="thrift-conditions">
+  <h2 id="thrift-conditions">Condition Levels</h2>
+  <ul>
+    <li><strong>New</strong> — Surplus Items may still have tags or look unworn. Fresh fabric with no fading or wear; near store-quality.</li>
+    <li><strong>Good</strong> — Light signs of use (minor fading or pilling) but no major flaws like tears or stains; everyday wearable.</li>
+    <li><strong>Fair</strong> — Noticeable wear (fading, stretched seams, small repairs). Functional and often chosen by upcyclers or for a worn-in look.</li>
+    <li><strong>Poor</strong> — Heavy wear with visible flaws (stains, holes, thinning fabric, frays). Best for DIY, repurposing, or distressed/vintage style.</li>
+  </ul>
+</section>
+
+
+
+      <!-- Filters -->
+      <div class="filter-section">
+        <div class="filter-group">
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter" onchange="filterProducts()">
+            <option value="all">All Categories</option>
+            <option value="tops">Tops</option>
+            <option value="bottoms">Bottoms</option>
+            <option value="dresses">Dresses</option>
+            <option value="outerwear">Outerwear</option>
+            <option value="accessories">Accessories</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="conditionFilter">Condition</label>
+          <select id="conditionFilter" onchange="filterProducts()">
+            <option value="all">All Conditions</option>
+            <option value="new">New</option>
+            <option value="good">Good</option>
+            <option value="fair">Fair</option>
+          <option value="poor">Poor</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="sortFilter">Sort By</label>
+          <select id="sortFilter" onchange="filterProducts()">
+            <option value="default">Default</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name">Name: A to Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2>Your Saved Items</h2>
+        <button class="close-cart" onclick="toggleCart()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total" id="cartTotal" style="display: none;">
+        <div class="cart-total-row">
+          <span>Total:</span>
+          <span id="totalPrice">₱0.00</span>
+        </div>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 1rem;" onclick="reserve()">
+        Proceed to Reservation
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="product.js"></script>
+  
+  <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container footer-grid">
+        <div class="footer-section footer-about">
+          <div class="footer-logo">
+            <div class="logo-box">
+              <img src="images/EcoThreads_Logo2.png" alt="" />
+            </div>
+            <span class="logo-text">EcoThreads</span>
+          </div>
+          <p>
+Giving every thread a second chance, one stylish find at a time.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Offers</a></li>
+<li><a href="#team">Team</a></li>
+          </ul>
+        </div>
+ 
+<div class="footer-section">
+          <h3>Store Hours</h3>
+<p>Mon–Sat: 10:00 AM — 7:00 PM </p>
+<p>Sun: 11:00 AM — 5:00 PM </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <address class="contact-info">
+            <p>
+              <i class="fas fa-map-marker-alt"></i>123 Bayanihan Street, Brgy. Malaya, Cubao, Quezon City 1109
+Metro Manila, Philippines
+Landmark: Near Cubao Market hub
+            </p>
+            <p><i class="fas fa-phone"></i> +63 (0)-54321-123</p>
+            <p><i class="fas fa-envelope"></i> tester.edu.ph</p>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Ecothreads. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+
+
+</body>
+</html>
